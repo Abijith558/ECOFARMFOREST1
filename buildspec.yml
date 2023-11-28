@@ -6,8 +6,9 @@ phases:
       python: 3.x
     commands:
       - echo "Installing dependencies"
+      - apt-get update
+      - apt-get install -y build-essential libpq-dev  # Add any other dependencies here
       - pip install -r requirements.txt
-      - apt-get install -y libpq-dev  # Add any system dependencies here
 
   build:
     commands:
