@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.x
+    commands:
+      - echo "Installing dependencies"
+      - pip install -r requirements.txt
+      - apt-get install -y libpq-dev  # Add any system dependencies here
+
+  build:
+    commands:
+      - echo "Building and running Flask application"
+      - python -m flask run &  # Assuming your Flask app script is named "your_app.py"
+      - sleep 3  # Wait for Flask app to start
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: yes
